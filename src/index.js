@@ -39,13 +39,8 @@ let initSocketIO = () => {
     app.use(express.static(__dirname + '/static'));
     app.use(routers);
 
-    const middlewares = require('./middlewares');
     const channels = require('./channels');
     io.on('connection', function(socket) {
-        for (let pro in middlewares) {
-            socket.use(middlewares[pro]);
-        }
-
         for (let pro in channels) {
             socket.on(pro, channels[pro]);
         }

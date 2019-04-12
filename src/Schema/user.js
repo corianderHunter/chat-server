@@ -4,8 +4,7 @@ let moment = require('moment');
 
 let userSchema = new Schema({
     name: String,
-    password: String,
-    Avatar: String,
+    avatar: String,
     lvl: Number,
     experience: Number,
     oneWord: String,
@@ -14,11 +13,11 @@ let userSchema = new Schema({
     createdAt: {
         type: String,
         default: moment().format('YYYY-MM-DD HH:mm:ss')
-    },
-})
+    }
+});
 
-userSchema.methods = {}
+userSchema.methods = {};
 
-userSchema.statics = {}
+userSchema.statics = {};
 
-mongoose.model('User', userSchema)
+mongoose.model('User', userSchema);
